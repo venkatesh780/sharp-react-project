@@ -31,6 +31,7 @@ function App() {
           date={expense.date}
           amount={expense.amount}
           locationOfExpenditure={locationOfExpenditure}
+          key={expense.id}
         />
       ))}
     </div>

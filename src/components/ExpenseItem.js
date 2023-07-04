@@ -1,13 +1,19 @@
 import "./ExpenseItem.css";
+import ExpenseDate from "./ExpenseDate";
+import ExpenseDetails from "./ExpenseDetails";
 
 const ExpenseItem = (props) => {
   return (
     <div className="expense-item">
-      <div className="">{props.date.toISOString()}</div>
+      <div>
+        <ExpenseDate date={props.date} />
+      </div>
       <div className="expense-item__description">
-        <h2>{props.title}</h2>
-        <div className="expense-item__price">RS {props.amount}</div>
-        <p>{props.locationOfExpenditure}</p>
+        <ExpenseDetails
+          title={props.title}
+          amount={props.amount}
+          locationOfExpenditure={props.locationOfExpenditure}
+        />
       </div>
     </div>
   );
