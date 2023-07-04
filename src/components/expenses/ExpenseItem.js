@@ -1,10 +1,11 @@
 import "./ExpenseItem.css";
 import ExpenseDate from "./ExpenseDate";
 import ExpenseDetails from "./ExpenseDetails";
+import Card from "../UI/Card";
 
 const ExpenseItem = (props) => {
   return (
-    <div className="expense-item">
+    <Card className="expense-item">
       <div>
         <ExpenseDate date={props.date} />
       </div>
@@ -15,7 +16,7 @@ const ExpenseItem = (props) => {
           locationOfExpenditure={props.locationOfExpenditure}
         />
       </div>
-    </div>
+    </Card>
   );
 };
 
