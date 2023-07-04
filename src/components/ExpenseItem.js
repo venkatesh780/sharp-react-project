@@ -1,10 +1,14 @@
-const ExpenseItem = () => {
+import "./ExpenseItem.css";
+
+const ExpenseItem = (props) => {
   return (
-    <div>
-      <h2>Expense Items</h2>
-      <p>Food Rs 10</p>
-      <p>Petrol Rs 100</p>
-      <p>Movies Rs 200</p>
+    <div className="expense-item">
+      <div className="">{props.date.toISOString()}</div>
+      <div className="expense-item__description">
+        <h2>{props.title}</h2>
+        <div className="expense-item__price">RS {props.amount}</div>
+        <p>{props.locationOfExpenditure}</p>
+      </div>
     </div>
   );
 };
