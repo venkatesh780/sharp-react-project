@@ -6,14 +6,13 @@ import { useState } from "react";
 
 const ExpenseItem = (props) => {
   const [title, setTitle] = useState(props.title);
+  const [expenseAmount, setExpenseAmount] = useState(props.amount);
   const hangleClick = () => {
     setTitle("updated!!!");
     console.log(title);
   };
-  const deleteHandler = (e) => {
-    const expenses = e.target.parentElement.parentElement;
-    const expenseItem = e.target.parentElement;
-    expenses.removeChild(expenseItem);
+  const expenseHandler = () => {
+    setExpenseAmount(100);
   };
   return (
     <Card className="expense-item">
@@ -23,12 +22,12 @@ const ExpenseItem = (props) => {
       <div className="expense-item__description">
         <ExpenseDetails
           title={title}
-          amount={props.amount}
+          amount={expenseAmount}
           locationOfExpenditure={props.locationOfExpenditure}
         />
       </div>
       <button onClick={hangleClick}>change Title</button>
-      <button onClick={deleteHandler}>delete expense</button>
+      <button onClick={expenseHandler}>change expense</button>
     </Card>
   );
 };
