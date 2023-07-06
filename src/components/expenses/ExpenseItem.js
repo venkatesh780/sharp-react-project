@@ -4,6 +4,14 @@ import ExpenseDetails from "./ExpenseDetails";
 import Card from "../UI/Card";
 
 const ExpenseItem = (props) => {
+  const hangleClick = () => {
+    console.log("clicked!!!");
+  };
+  const deleteHandler = (e) => {
+    const expenses = e.target.parentElement.parentElement;
+    const expenseItem = e.target.parentElement;
+    expenses.removeChild(expenseItem);
+  };
   return (
     <Card className="expense-item">
       <div>
@@ -16,6 +24,8 @@ const ExpenseItem = (props) => {
           locationOfExpenditure={props.locationOfExpenditure}
         />
       </div>
+      <button onClick={hangleClick}>change Title</button>
+      <button onClick={deleteHandler}>delete expense</button>
     </Card>
   );
 };
