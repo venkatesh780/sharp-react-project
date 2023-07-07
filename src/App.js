@@ -35,11 +35,11 @@ const INITIAL_EXPENSES = [
 ];
 
 const App = () => {
-  const [allExpenses, setExpenses] = useState(INITIAL_EXPENSES);
+  const [allExpenses, setAllExpenses] = useState(INITIAL_EXPENSES);
   const [filterExpenses, setFilterExpenses] = useState(INITIAL_EXPENSES);
 
   const addExpenseData = (expense) => {
-    setExpenses((prevExpenses) => {
+    setAllExpenses((prevExpenses) => {
       return [expense, ...prevExpenses];
     });
   };

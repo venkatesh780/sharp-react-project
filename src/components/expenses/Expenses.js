@@ -18,6 +18,7 @@ const Expenses = (props) => {
         selected={filteredYear}
         onChangeFilter={filterChageHandler}
       />
+      {expenses.length === 0 && <p>No Expense Found!!!</p>}
       {expenses.map((item) => (
         <ExpenseItem
           title={item.title}
@@ -26,6 +27,9 @@ const Expenses = (props) => {
           key={item.id}
         />
       ))}
+      {expenses.length === 1 && (
+        <p>Only single Expense here. Please add more...</p>
+      )}
     </Card>
   );
 };
