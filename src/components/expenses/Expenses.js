@@ -1,6 +1,7 @@
 import { useState } from "react";
 import ExpensesFilter from "./ExpenseFilter";
 import ExpenseItem from "./ExpenseItem";
+import ExpensesChart from "./ExpensesChart";
 import "./Expenses.css";
 import Card from "../UI/Card";
 
@@ -23,6 +24,7 @@ const Expenses = (props) => {
         selected={filteredYear}
         onChangeFilter={filterChageHandler}
       />
+      <ExpensesChart expenses={filteredExpenses} />
       {filteredExpenses.length === 0 && <p>No Expense Found!!!</p>}
       {filteredExpenses.map((item) => (
         <ExpenseItem
