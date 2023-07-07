@@ -6,11 +6,16 @@ import Card from "../UI/Card";
 
 const Expenses = (props) => {
   const [filteredYear, setFilteredYear] = useState("2020");
+
   const filterChageHandler = (selectedYear) => {
     setFilteredYear(selectedYear);
-    props.onChangeFilter(selectedYear);
   };
+
   const expenses = props.expenses;
+
+  const filteredExpenses = expenses.filter((expense) => {
+    return expense.date.getFullYear().toString() === filteredYear;
+  });
 
   return (
     <Card className="expenses">
@@ -18,8 +23,8 @@ const Expenses = (props) => {
         selected={filteredYear}
         onChangeFilter={filterChageHandler}
       />
-      {expenses.length === 0 && <p>No Expense Found!!!</p>}
-      {expenses.map((item) => (
+      {filteredExpenses.length === 0 && <p>No Expense Found!!!</p>}
+      {filteredExpenses.map((item) => (
         <ExpenseItem
           title={item.title}
           date={item.date}
@@ -27,7 +32,7 @@ const Expenses = (props) => {
           key={item.id}
         />
       ))}
-      {expenses.length === 1 && (
+      {filteredExpenses.length === 1 && (
         <p>Only single Expense here. Please add more...</p>
       )}
     </Card>
