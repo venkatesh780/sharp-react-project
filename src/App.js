@@ -35,18 +35,25 @@ const INITIAL_EXPENSES = [
 ];
 
 const App = () => {
-  const [expenses, setExpenses] = useState(INITIAL_EXPENSES);
+  const [allExpenses, setExpenses] = useState(INITIAL_EXPENSES);
+  const [filterExpenses, setFilterExpenses] = useState(INITIAL_EXPENSES);
 
   const addExpenseData = (expense) => {
     setExpenses((prevExpenses) => {
       return [expense, ...prevExpenses];
     });
   };
+  const changeFilter = (selectedYear) => {
+    const filtereExpenses = allExpenses.filter(
+      (item) => item.date.getFullYear().toString() === selectedYear
+    );
+    setFilterExpenses(filtereExpenses);
+  };
 
   return (
     <div>
       <NewExpenseForm onAddExpenseData={addExpenseData} />
-      <Expenses expenses={expenses} />
+      <Expenses expenses={filterExpenses} onChangeFilter={changeFilter} />
     </div>
   );
 };
